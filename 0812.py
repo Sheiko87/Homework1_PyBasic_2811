@@ -8,11 +8,8 @@ print(f'В корзине {in_box} яблок')
 class_1 = int(input('Введите колличество учеников класса А : '))
 class_2 = int(input('Введите колличество учеников класса Б : '))
 class_3 = int(input('Введите колличество учеников класса В : '))
-all_pupil = class_1 + class_2 + class_3
-number_desks = int(all_pupil / 2)
-ost_pupil = int(all_pupil % 2)
-all_desks = number_desks + ost_pupil
-print(f'Нужно {all_desks}  парт')
+number_desks = int(class_1 / 2 + class_1 % 2) + int(class_2 / 2 + class_2 % 2) + int(class_3 / 2 + class_3 % 2)
+print(f'Нужно {number_desks}  парт')
 
 number = int(input('Введите трехзначное число: '))
 units = int(number % 10)
