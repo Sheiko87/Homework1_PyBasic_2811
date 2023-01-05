@@ -31,27 +31,84 @@ p = 3
 for s in range(1, strings + 1):
     for space in range(strings * 2 - s * 2):
         print('-', end='')
-    if 2<=s<=6:
+    if 2 <= s <= 6:
         for star in range(2):
-            print('*','-'*(p-1), end='')
-        p=p+4
+            print('*', '-' * (p - 1), end='')
+        p = p + 4
     else:
         for star in range(s * 2 - 1):
             print('*', end=' ')
     print()
 
-# ромб
+# C
+
+#            *
+#          * * *
+#        * * * * *
+#      * * * * * * *
+#    * * * * * * * * *
+#  * * * * * * * * * * *
+# * * * * * * * * * * * * *
+#  *                   *
+#    *               *
+#      *           *
+#        *       *
+#          *   *
+#            *
+
 strings = int(input('Введите высоту фигуры: '))
-for s in range(0,strings+1):
-    for j in range(0,strings-s):
-        print('-',end='')
-    for j in range(0,s):
-        print('*',end=' ')
+p = 19
+for s in range(1, strings + 1):
+    for space in range(strings * 2 - s * 2):
+        print('-', end='')
+    for star in range(s * 2 - 1):
+        print('*', end=' ')
     print()
-if s==strings:
-    for s in range(strings-1,0,-1):
-        for j in range(0,strings-s):
-            print('-',end='')
-        for j in range(0,s):
-            print('*',end=' ')
+if s == strings:
+    for s in range(strings - 1, 0, -1):
+        for space in range(strings * 2 - s * 2):
+            print('-', end='')
+        if 2 <= s <= 6:
+            for star in range(2):
+                print('*', '-' * (p - 1), end='')
+            p = p - 4
+        else:
+            for star in range(s * 2 - 1):
+                print('*', end=' ')
+        print()
+
+# D
+#            *
+#          * * *
+#        * * * * *
+#      * * * * * * *
+#    * * * * * * * * *
+#  * * * * * * * * * * *
+# * * * * * * * * * * * * *
+#  *         *         *
+#    *       *       *
+#      *     *     *
+#        *   *   *
+#          * * *
+#            *
+
+strings = int(input('Введите высоту фигуры: '))
+p = 9
+for s in range(1, strings + 1):
+    for space in range(strings * 2 - s * 2):
+        print('-', end='')
+    for star in range(s * 2 - 1):
+        print('*', end=' ')
+    print()
+if s == strings:
+    for s in range(strings - 1, 0, -1):
+        for space in range(strings * 2 - s * 2):
+            print('-', end='')
+        if 2 <= s <= 6:
+            for star in range(3):
+                print('*', '-' * (p - 1), end='')
+            p = p - 2
+        else:
+            for star in range(s * 2 - 1):
+                print('*', end=' ')
         print()
