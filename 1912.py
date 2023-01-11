@@ -31,7 +31,7 @@ p = 3
 for s in range(1, strings + 1):
     for space in range(strings * 2 - s * 2):
         print('-', end='')
-    if 2 <= s <= 6:
+    if 2 <= s <= strings - 1:
         for star in range(2):
             print('*', '-' * (p - 1), end='')
         p = p + 4
@@ -93,7 +93,7 @@ if s == strings:
 #            *
 
 strings = int(input('Введите высоту фигуры: '))
-p = 9
+p = strings + s * 2
 for s in range(1, strings + 1):
     for space in range(strings * 2 - s * 2):
         print('-', end='')
