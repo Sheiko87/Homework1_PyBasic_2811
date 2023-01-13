@@ -17,7 +17,7 @@ names = []
 the_longest_name = persons[0]['name']
 for i in persons:
     #    print(len(i['name']), end=' ')
-    if len(i['name']) > len(the_longest_name):
+    if len(i['name']) >= len(the_longest_name):
         the_longest_name = i['name']
         # print(the_longest_name,end=' ')
         names.append(the_longest_name)
@@ -77,10 +77,3 @@ for j in my_dict_2:
         dictionary.update({j: [my_dict_1[j], my_dict_2[j]]})
 print(dictionary)
 print()
-
-
-
-
-
-
-
