@@ -16,14 +16,11 @@ def print_strings(strings):
 def print_list(string):
     my_list = list()
     for element in string:
-        for word in element:
-            if word[0] == 'a':
-                my_list.append(word)
-    #        print(my_list)
+        if element[0] == 'a':
+            my_list.append(element)
     return my_list
 
-
-# print(print_list(['fgkf', 'anncnb', 'jbvka', 'anf']))
+#print(print_list(['fgkf', 'anncnb', 'jbvka', 'anf']))
 
 # 3
 def letter_a(words):
@@ -72,10 +69,9 @@ def print_symbol(str1, str2):
 # 7
 def symbol_double_str(str1, str2):
     my_list = []
-    for i in str1:
-        if i in str2:
-            if str1.count(i) == 1 and str2.count(i) == 1:
-                my_list.append(i)
+    for i in set(str1):
+        if str1.count(i) == 1 and str2.count(i) == 1:
+            my_list.append(i)
     return my_list
 
-#print(symbol_double_str('vdhjs','dhhmn'))
+print(symbol_double_str('vdhjs','dhhmn'))
