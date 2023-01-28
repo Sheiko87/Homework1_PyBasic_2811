@@ -1,7 +1,8 @@
 ## 1
 
 persons = [{'name': 'John', 'age': 15}, {'name': 'Volodimir', 'age': 42},
-           {'name': 'Jack', 'age': 45}, {'name': 'Vasul', 'age': 27}, {'name': 'Katerina', 'age': 15}]
+           {'name': 'Jack', 'age': 45}, {'name': 'Vasul', 'age': 27}, {'name': 'Katerina', 'age': 15},
+           {'name': 'Vladuslav', 'age': 47}]
 # a
 name = []
 age_min = persons[0]['age']
@@ -16,7 +17,6 @@ print()
 names = []
 the_longest_name = persons[0]['name']
 for i in persons:
-    #    print(len(i['name']), end=' ')
     if len(i['name']) >= len(the_longest_name):
         the_longest_name = i['name']
         # print(the_longest_name,end=' ')
@@ -29,7 +29,7 @@ sum = 0
 for i in persons:
     age = int(i['age'])
     sum = sum + age
-middle_age = int(sum / len(persons))
+    middle_age = int(sum / len(persons))
 print(middle_age)
 print()
 
@@ -67,13 +67,12 @@ print()
 
 # d
 dictionary = {}
-for key in my_dict_1:
-    if key not in my_dict_2:
-        dictionary.update({key: my_dict_1[key]})
-for j in my_dict_2:
-    if j not in my_dict_1:
-        dictionary.update({j: my_dict_2[j]})
-    elif j in my_dict_1:
-        dictionary.update({j: [my_dict_1[j], my_dict_2[j]]})
+for key in {*my_dict_1, *my_dict_2}:
+    if key in my_dict_1 and key in my_dict_2:
+        dictionary.update([(key, [my_dict_1[key], my_dict_2[key]])])
+    elif key in my_dict_1:
+        dictionary.update([(key, my_dict_1[key])])
+    elif key in my_dict_2:
+        dictionary.update([(key, my_dict_2[key])])
 print(dictionary)
 print()
