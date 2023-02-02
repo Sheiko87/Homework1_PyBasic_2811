@@ -20,23 +20,66 @@ def new_file(filename):
 # new_file("TEST.json")
 # 2
 def calc_words(filename: str):
-    my_di = {}
-    words = []
-    statistic = {'Filename': filename}
+    statistic = [{'Filename': filename}]
     with open(filename, "rt") as file:
         text = file.read()
         text = text.lower()
         text = text.replace('\n', ' ')
         text = text.replace(',', ' ').replace('.', ' ').replace('!', ' ').replace('?', ' ').replace(':', ' ')
-        for word in text.split():
-            words.append(word)
-            if word in words:
-            my_di.update({word: text.count(word)})
-            statistic.update({'Words': words, 'Count': my_di})
-        print(statistic)
-
-        #            my_di.update({word: text.count(word)})
-        #    return my_di
+        for word in set(text.split()):
+            statistic.append({'Word': word, 'Count': text.count(word)})
+        return (statistic)
 
 
-calc_words("London.txt")
+# print(calc_words("London.txt"))
+
+import json
+
+
+def new_file(filename):
+    with open(filename, "a") as file:
+        json.dump(calc_words("London.txt"), file)
+
+
+new_file("stat.json")
+
+# 3
+def calc_words(filename: str):
+    # my_di = {}
+    # words = []
+    statistic = []
+    with open(filename, "rt") as file:
+        text = file.read()
+        text = text.lower()
+        text = text.replace('\n', ' ')
+        text = text.replace(',', ' ').replace('.', ' ').replace('!', ' ').replace('?', ' ').replace(':', ' ')
+        for word in set(text.split()):
+            statistic.append({'Word': word, 'Count': text.count(word)})
+        statistic.append({'Filename': filename})
+        # print(statistic)
+        return (statistic)
+
+
+# calc_words("London.txt")
+
+
+
+import csv
+
+
+def new_file_csv(filename: str):
+    text = calc_words(filename)
+    with open('stat.csv', "w", newline="") as file:
+        #print(text)
+        for i in text:
+            #print(i,end='\n')
+            columns = i.keys()
+            #print(columns)
+            writer = csv.DictWriter(file, fieldnames=columns)
+            writer.writeheader()
+            writer.writerows(text)
+
+
+#new_file_csv("London.txt")
+
+#не выводит Filename
