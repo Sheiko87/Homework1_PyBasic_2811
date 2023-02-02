@@ -15,12 +15,15 @@ print()
 
 # b
 names = []
-the_longest_name = persons[0]['name']
+longest_name_length = 0
 for i in persons:
-    if len(i['name']) >= len(the_longest_name):
-        the_longest_name = i['name']
-        # print(the_longest_name,end=' ')
-        names.append(the_longest_name)
+    if len(i['name']) > longest_name_length:
+        longest_name_length = len(i['name'])
+    #print(longest_name_length, end=' ')
+
+for i in persons:
+    if len(i['name']) == longest_name_length:
+        names.append(i['name'])
 print(names)
 print()
 
